@@ -1,40 +1,22 @@
 
-@import "custom_bootstrap_vars";
+
 @import "bootstrap";
-
-
-
 
 // project specific CSS goes here
 
-////////////////////////////////
-		//Variables//
-////////////////////////////////
+// Base settings
+@import "base/_variables";
+@import "base/_browser-basics";
+@import "base/_mixins";
+@import "custom_bootstrap_vars";
 
-// Alert colors
+// Modules
+@import "modules/_alerts";
+@import "modules/_animations";
+@import "modules/_dropdown";
+@import "modules/_popup";
 
-$white: #fff;
-$mint-green: #d6e9c6;
-$black: #000;
-$pink: #f2dede;
-$dark-pink: #eed3d7;
-$red: #b94a48;
 
-////////////////////////////////
-		//Alerts//
-////////////////////////////////
-
-// bootstrap alert CSS, translated to the django-standard levels of
-// debug, info, success, warning, error
-
-.alert-debug {
-  background-color: $white;
-  border-color: $mint-green;
-  color: $black;
-}
-
-.alert-error {
-  background-color: $pink;
-  border-color: $dark-pink;
-  color: $red;
-}
+// Base settings reserved for end of file
+@import "base/_helpers";
+@import "base/_print-styles";
