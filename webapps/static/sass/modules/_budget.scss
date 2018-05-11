@@ -32,6 +32,14 @@ h1, h6 {
   margin-bottom: 50px;
 }
 
+// Project Add View
+form ul li.category {
+  display: inline-block;
+  background-color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
 // Project Detail
 .section-stats h1 {
   font-size: 4vw;

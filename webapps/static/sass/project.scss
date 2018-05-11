@@ -15,11 +15,13 @@
 @import "modules/_animations";
 @import "modules/_dropdown";
 @import "modules/_popup";
-@import "modules/_budget";
+
 
 // Base settings reserved for end of file
 @import "base/_helpers";
 @import "base/_print-styles";
 
-// Start with video #4:
-// https://www.youtube.com/watch?v=qLsluNHziDY
+@import "modules/_budget";
+
+// Start with video #6:
+// https://www.youtube.com/watch?v=8ziBmNzsgCk
