@@ -10,9 +10,9 @@ var gulp = require('gulp'),
       sass = require('gulp-sass'),
       autoprefixer = require('gulp-autoprefixer'),
       cssnano = require('gulp-cssnano'),
-      
+
       concat = require('gulp-concat'),
-      
+
       rename = require('gulp-rename'),
       del = require('del'),
       plumber = require('gulp-plumber'),
@@ -31,14 +31,14 @@ var pathsConfig = function (appName) {
   var vendorsRoot = 'node_modules/';
 
   return {
-    
+
     bootstrapSass: vendorsRoot + '/bootstrap/scss',
     vendorsJs: [
       vendorsRoot + 'jquery/dist/jquery.slim.js',
       vendorsRoot + 'popper.js/dist/umd/popper.js',
       vendorsRoot + 'bootstrap/dist/js/bootstrap.js'
     ],
-    
+
     app: this.app,
     templates: this.app + '/templates',
     css: this.app + '/static/css',
@@ -60,9 +60,9 @@ gulp.task('styles', function() {
   return gulp.src(paths.sass + '/project.scss')
     .pipe(sass({
       includePaths: [
-        
+
         paths.bootstrapSass,
-        
+
         paths.sass
       ]
     }).on('error', sass.logError))

@@ -10,8 +10,8 @@ from .models import User
 
 
 # Customize Admin Site
-admin.sites.AdminSite.site_header = 'budget Administration'
-admin.sites.AdminSite.site_title = 'budget Administration'
+admin.sites.AdminSite.site_header = 'Budget Administration'
+admin.sites.AdminSite.site_title = 'Budget Administration'
 
 
 # Register models

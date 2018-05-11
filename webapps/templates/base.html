@@ -17,14 +17,14 @@
 
     {% block css %}
 
+      <!-- Your stuff: Third-party CSS libraries go here -->
+      {% compress css %}
+      <!-- This file stores project-specific CSS -->
+      <link href="{% static 'css/project.css' %}" rel="stylesheet">
+      {% endcompress %}
 
-    <!-- Your stuff: Third-party CSS libraries go here -->
-    {% compress css %}
-    <!-- This file stores project-specific CSS -->
+      {% block extra-css %}{% endblock extra-css %}
 
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-
-    {% endcompress %}
     {% endblock %}
 
   </head>
@@ -36,12 +36,12 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Budget</a>
+        <a class="navbar-brand" href="{% url 'budget:list' %}">Budget</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'budget:list' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -101,6 +101,8 @@
       {% compress js %}
       <script src="{% static 'js/project.js' %}"></script>
       {% endcompress %}
+
+      {% block extra-js %}{% endblock extra-js %}
 
     {% endblock javascript %}
   </body>

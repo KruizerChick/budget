@@ -8,7 +8,7 @@ import environ
 # PATHS and ROOT DIRECTORY CONFIGURATION
 # ------------------------------------------------------------------------------
 ROOT_DIR = environ.Path(__file__) - 3  # (budget/config/settings/base.py - 3 = budget/)
-APPS_DIR = ROOT_DIR.path('budget')
+APPS_DIR = ROOT_DIR.path('webapps')
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
@@ -88,9 +88,9 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'budget.users.apps.UsersConfig',
+    'webapps.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-
+    'webapps.budget.apps.BudgetConfig',
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -101,7 +101,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
 MIGRATION_MODULES = {
-    'sites': 'budget.contrib.sites.migrations'
+    'sites': 'webapps.contrib.sites.migrations'
 }
 
 
@@ -248,7 +248,7 @@ MANAGERS = ADMINS
 
 # Celery
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ['budget.taskapp.celery.CeleryConfig']
+INSTALLED_APPS += ['webapps.taskapp.celery.CeleryConfig']
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-broker_url
 CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-result_backend
@@ -269,8 +269,8 @@ ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_ADAPTER = 'budget.users.adapters.AccountAdapter'
-SOCIALACCOUNT_ADAPTER = 'budget.users.adapters.SocialAccountAdapter'
+ACCOUNT_ADAPTER = 'webapps.users.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'webapps.users.adapters.SocialAccountAdapter'
 
 
 # django-compressor

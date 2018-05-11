@@ -3,7 +3,7 @@
 @import "bootstrap";
 
 // project specific CSS goes here
-
+@import url('https://fonts.googleapis.com/css?family=Lato');
 // Base settings
 @import "base/_variables";
 @import "base/_browser-basics";
@@ -15,8 +15,11 @@
 @import "modules/_animations";
 @import "modules/_dropdown";
 @import "modules/_popup";
-
+@import "modules/_budget";
 
 // Base settings reserved for end of file
 @import "base/_helpers";
 @import "base/_print-styles";
+
+// Start with video #4:
+// https://www.youtube.com/watch?v=qLsluNHziDY
