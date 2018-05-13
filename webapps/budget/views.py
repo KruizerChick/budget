@@ -1,7 +1,8 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.text import slugify
 from django.views.generic import CreateView
+import json
 
 from .forms import ExpenseForm
 from .models import Project, Category, Expense
@@ -26,7 +27,7 @@ def project_detail(request, project_slug):
             })
 
     elif request.method == 'POST':
-        # process the form
+        # Process the form
         form = ExpenseForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data['title']
@@ -42,6 +43,13 @@ def project_detail(request, project_slug):
                 amount=amount,
                 category=category
             ).save()
+
+    elif request.method == 'DELETE':
+        # Delete categories
+        id = json.loads(request.body)['id']
+        expense = get_object_or_404(Expense, id=id)
+        expense.delete()
+        return HttpResponse('')
 
     return HttpResponseRedirect(project_slug)
 
