@@ -10,7 +10,11 @@ from .models import Project, Category, Expense
 
 # Create your views here.
 def project_list(request):
-    return render(request, 'budget/project-list.html')
+    project_list = Project.objects.all()
+    return render(
+        request, 'budget/project-list.html',
+        {'project_list': project_list}
+        )
 
 
 def project_detail(request, project_slug):
